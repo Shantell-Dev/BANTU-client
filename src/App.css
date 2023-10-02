@@ -1,3 +1,7 @@
+* {
+  background-color: black;
+}
+
 .home-container {
   background-image: url("../styles/HI\ BEAUTY.jpeg");
   background-size: cover;
@@ -10,7 +14,7 @@
 }
 .overlay {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 40%;
   height: 100%;
   display: flex;
@@ -28,7 +32,7 @@
 }
 .topnav {
   overflow: hidden;
-  background-color: #000000;
+  background-color: transparent;
   position: flex-end;
 }
 /* Navbar links */
@@ -40,8 +44,4 @@
   text-decoration: none;
   font-size: 17px;
   position: relative;
-}
-.navbar a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
 }

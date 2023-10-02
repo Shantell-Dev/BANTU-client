@@ -10,14 +10,12 @@ function Navbar() {
   return (
     <nav className="navbar navbar-transparent navbar-expand-lg">
      <div class="bg-img">
-    <div class="container">
+  <div class="container">
     <div class="topnav">
-      <Link to="/">
-        <button>Home</button>
-        <button>Services</button>
-        <button>Signup</button>
-        <button>Login</button>
-      </Link>
+      <a href="#home">Home</a>
+      <a href="#service">Services</a>
+      <a href="#signup">Signup</a>
+      <a href="#login">Login</a>
     </div>
   </div>
 </div>
