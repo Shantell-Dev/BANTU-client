@@ -10,12 +10,9 @@ const AppointmentPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Here, you can send the appointment data to your backend API
-    // For simplicity, we'll just log it to the console
     const appointmentData = { name, email, date, time };
     console.log('Appointment Data:', appointmentData);
 
-    // Optionally, you can clear the form fields after submission
     setName('');
     setEmail('');
     setDate('');

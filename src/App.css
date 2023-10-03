@@ -13,15 +13,17 @@ body {
   background-size: cover;
   background-position: center;
   width: 100vw;
-  height: 100vw;
+  max-height: 28rem;
+  height: 100vh;
   display: flex;
   align-items: center;
-  position: absolute;
+  position: relative;
   justify-content: center;
 }
 .overlay {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(11, 21, 24, 0.65);
+  backdrop-filter: blur(17.5px);
   width: 40%;
   height: 100%;
   display: flex;
@@ -37,7 +39,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  background: transparent !important;
+  background-color: black;
   width: 100%;
   height: 3rem;
   text-align: right;
@@ -48,21 +50,29 @@ body {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
-  margin-right: 15px;
+  /* margin-right: 15px;*/
 }
-.App {
+@media (max-width: 767px) {
+  .navbar {
+    height: auto;
+  }
+  .navbar-toggler {
+    margin-right: 1rem;
+  }
+  .navbar-collapse {
+    margin-top: 0.75rem;
+  }
+  .navbar-nav {
+    flex-direction: column;
+  }
+  .nav-item {
+    margin-bottom: 5px;
+  }
+  .overlay {
+    width: 100%;
+  }
 }
-/*.bg-img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: transparent;
-  width: 100%;
-  text-align: right;
-  box-sizing: border-box;
-  z-index: 3;
-}*/
-/*Body {
+/*body {
   overflow-y: scroll;
   overflow-x: none;
 }*/
