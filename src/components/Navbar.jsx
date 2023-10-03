@@ -1,29 +1,33 @@
-// src/components/Navbar.jsx
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBrush } from "@fortawesome/free-solid-svg-icons";
+
 
 function Navbar() {
-  //const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isLoggedIn = false;
+
   useEffect(() => {
     const toggleButton = document.querySelector(".navbar-toggler");
-    const collapseDiv = document.querySelector(".navbar-collapse");
+    const navbar = document.querySelector(".navbar");
 
     toggleButton.addEventListener("click", () => {
-      collapseDiv.classList.toggle("show");
+      setIsMenuOpen(!isMenuOpen);
+      navbar.classList.toggle("navbar-opened", isMenuOpen);
     });
-  }, []);
+  }, [isMenuOpen]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ">
       <div className="container">
         <a className="navbar-brand" href="/">
-          BANTU
+        BANTU <FontAwesomeIcon icon={faBrush} />
         </a>
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler ${isMenuOpen ? "collapsed" : ""}`}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -34,8 +38,9 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
+          className={`collapse navbar-collapse justify-content-end ${
+            isMenuOpen ? "show" : ""
+          }`}
         >
           <ul className="navbar-nav">
             <li className="nav-item">

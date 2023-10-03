@@ -13,16 +13,16 @@ body {
   background-size: cover;
   background-position: center;
   width: 100vw;
-  max-height: 28rem;
   height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   justify-content: center;
+  transition: background-color 0.3s ease;
 }
 .overlay {
   position: absolute;
-  background: rgba(11, 21, 24, 0.65);
+  background: rgba(5, 4, 4, 0.65);
   backdrop-filter: blur(17.5px);
   width: 40%;
   height: 100%;
@@ -50,7 +50,64 @@ body {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
-  /* margin-right: 15px;*/
+  transition: border-bottom 0.3s;
+}
+.navbar a:hover {
+  border-bottom: 2px solid #fff;
+}
+.nav-item {
+  text-align: left;
+}
+.home .intro {
+  color: white;
+}
+.card-conatiner {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+.home .service {
+  background: #a5836a;
+}
+.card {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: none !important;
+  background: none !important;
+}
+.home .schedule-title {
+  text-align: right;
+  align-items: center;
+  justify-content: center;
+}
+.home .schedule-times {
+  text-align: left;
+  border-left: 2px solid black;
+  padding-right: 1rem;
+}
+.home .about {
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+.vertical-line {
+  border-left: 2px solid #000;
+  height: 100%;
+  margin-right: 1rem;
+}
+.home .price {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+  background-color: black;
+}
+.home .price h2, .home .price p {
+color: white;
 }
 @media (max-width: 767px) {
   .navbar {
@@ -70,9 +127,10 @@ body {
   }
   .overlay {
     width: 100%;
+    background: rgba(5, 4, 4, 0.65);
+    backdrop-filter: none;
+  }
+  .home-container {
+    max-height: 28rem;
   }
 }
-/*body {
-  overflow-y: scroll;
-  overflow-x: none;
-}*/
