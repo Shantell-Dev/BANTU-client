@@ -17,12 +17,10 @@ const servicesData = [
 const ServicesPage = () => {
   const [services, setServices] = useState([servicesData]);
   const [loading, setLoading] = useState(true);
-  
 
   useEffect(() => {
-    // Make an HTTP GET request to your backend API to fetch the services
     axios
-      .get("/api/services")
+      .get("http://localhost:5005/api/service")
       .then((response) => {
         setServices(response.data);
         setLoading(false);
@@ -35,8 +33,8 @@ const ServicesPage = () => {
 
   return (
     <div className="container mt-5">
-      {services.map((service) => (
-        <div className="row" key={service.id}>
+      {services.map((service, i) => (
+        <div className="row" key={service._id + i}>
           <div className="col-md-6 image">
             <img src={ProfileImage} className="img-fluid"></img>
           </div>
