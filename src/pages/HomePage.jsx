@@ -5,6 +5,7 @@ import Icon3 from "../../styles/icon_3.svg";
 import ProfileImage from "../../styles/image.svg";
 import MalikImage from "../../styles/malik.svg";
 import ContactImage from "../../styles/image1.svg";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -15,14 +16,21 @@ function HomePage() {
             <div className="row">
               <div className="col-md-6 intro">
                 <h2>YOUR HAIR IS OUR CANVAS</h2>
-                <p>We see "YOU" and we create the look that matches your personality best</p>
-                <button type="button" class="btn btn-primary btn-lg">Book Appointment</button>
+                <p>
+                  We see "YOU" and we create the look that matches your
+                  personality best
+                </p>
+                <Link to="/appointment" className="nav-link">
+                  <button type="button" class="btn btn-primary btn-lg">
+                    Book Appointment
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="container card-conatiner service mt-5">
+      <div className=" service p-2">
         <div className="row">
           <div className="col-md-4">
             <Card
@@ -47,7 +55,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container card-conatiner  mt-5">
+      <div className="container p-2">
         <div className="row">
           <div className="col-md-6 schedule-title">
             <h3>Opening Hours</h3>
@@ -67,31 +75,37 @@ function HomePage() {
           <div className="col-md-6 about d-flex">
             <h2>Shantell</h2>
             <h3>Braider/ Hair Stylist</h3>
-            <p>Shantell is an African hairstylist in Berlin, known for blending African hair traditions with modern flair. </p>
+            <p>
+              Shantell is an African hairstylist in Berlin, known for blending
+              African hair traditions with modern flair.{" "}
+            </p>
           </div>
         </div>
       </div>
-      <div className="container mt-5">
+      <div className="container ">
         <div className="row">
           <div className="col-md-6 about d-flex">
             <h2>MALIK DE LA CRUZ</h2>
             <h3>Barber</h3>
-            <p>Malik,a Brazilian-born male hairstylist in Berlin, is known for his innovative and gender-inclusive approach to hairstyling.</p>
+            <p>
+              Malik,a Brazilian-born male hairstylist in Berlin, is known for
+              his innovative and gender-inclusive approach to hairstyling.
+            </p>
           </div>
           <div className="col-md-6 image">
             <img src={MalikImage} className="img-fluid"></img>
           </div>
         </div>
       </div>
-      <div className="container mt-5 price">
+      <div className=" price mt-3">
         <div className="row">
           <div className="col-md-4 d-flex schedule-title">
             <h2>Price List</h2>
           </div>
           <div className="col-md-8 ">
-            <p>Braids  150€</p>
-            <p>FULANI BRAIDS/ WIG INSTALLATION/ WEAVE  80€</p>
-            <p>CROTCHET/ CORNROWS  50€</p>
+            <p>Braids 150€</p>
+            <p>FULANI BRAIDS/ WIG INSTALLATION/ WEAVE 80€</p>
+            <p>CROTCHET/ CORNROWS 50€</p>
             <p>TWIST 100€</p>
             <p>LOCS 130€</p>
             <p>SPECIAL OCCASIONS MAKE-UP 120€</p>
@@ -100,7 +114,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container banner mt-5">
+      <div className="container banner mt-3 ">
         <div className="row">
           <div className="col-md-6 banner-image">
             <img src={ContactImage} className="img-fluid" alt="Banner Image" />
