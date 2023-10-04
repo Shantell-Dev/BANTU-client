@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ServicesPage = () => {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+const ServicePage = () => {
+  const servicesData = [
+    {
+      serviceName: 'Service 1',
+      description: 'Description for Service 1.',
+      duration: '1 hour',
+      price: 50,
+      imageUrl: 'service1.jpg',
+    },
+    // Add data for the other 10 services here
+  ];
 
   useEffect(() => {
     // Make an HTTP GET request to your backend API to fetch the services
