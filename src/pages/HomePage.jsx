@@ -124,7 +124,6 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <form action="/contct">form</form>
     </div>
   );
 }
