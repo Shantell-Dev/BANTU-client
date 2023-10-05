@@ -111,6 +111,37 @@ body {
 .home .price p {
   color: white;
 }
+.intro p {
+  color: white;
+  padding: 1rem 0;
+  border-bottom: 2px solid #fff;
+}
+.services {
+  background-color: #f4ede6;
+}
+
+footer {
+  background-color: black;
+  color: #333;
+  padding: 3rem 0;
+}
+.footer-section {
+  color: white;
+}
+.footer-section h4 {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 10px;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
 
 @media (max-width: 767px) {
   .navbar {

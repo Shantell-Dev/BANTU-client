@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBrush } from "@fortawesome/free-solid-svg-icons";
-
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +23,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark ">
       <div className="container">
         <a className="navbar-brand" href="/">
-        BANTU <FontAwesomeIcon icon={faBrush} />
+          BANTU <FontAwesomeIcon icon={faBrush} />
         </a>
         <button
           className={`navbar-toggler ${isMenuOpen ? "collapsed" : ""}`}

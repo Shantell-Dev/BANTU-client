@@ -5,6 +5,7 @@ import ServicesPage from "./pages/ServicesPage";
 import AppointmentPage from "./pages/AppointmentPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import Footer from "./pages/Footer";
 //import IsPrivate from "./components/IsPrivate";
 //import IsAnon from "./components/IsAnon";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
