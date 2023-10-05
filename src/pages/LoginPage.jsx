@@ -2,23 +2,24 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import loginImage from "../../styles/image1.svg";
 
 const API_URL = "http://localhost:5005";
 
 function LoginPage(props) {
-  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
-  const handleEmail = (e) => setEmail(e.target.value);
+  const handleuserName = (e) => setUserName(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
+    const requestBody = { userName, password };
 
     axios
       .post(`${API_URL}/auth/login`, requestBody)
@@ -36,27 +37,54 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
-
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+    <div className="log row p-md-0 m-md-0">
+      <div className={`col-md-6 p-md-0 m-md-0 image`}>
+        <img src={loginImage} className="img-fluid" alt="Banner Image" />
+      </div>
+      <div
+        className={`col-md-6 about d-flex align-items-center justify-content-center`}
+      >
+        <form onSubmit={handleLoginSubmit}>
+          <h1>Login</h1>
+          <div className="form-group">
+            <label className="text-left" htmlFor="userName">
+              UserName:
+            </label>
+            <input
+              type="userName"
+              className="form-control border-bottom"
+              id="userName"
+              name="userName"
+              value={userName}
+              onChange={handleuserName}
+              placeholder="Enter userName"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="text-left" htmlFor="password">
+              Password:
+            </label>
+            <input
+              type="password"
+              className="form-control border-bottom"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+              placeholder="Enter Password"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-dark">
+            Login
+          </button>
+          <p>
+            Don't have an account yet? <Link to="/signup">Sign Up</Link>
+          </p>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+      </div>
     </div>
   );
 }

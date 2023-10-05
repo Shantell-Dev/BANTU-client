@@ -21,9 +21,7 @@ function HomePage() {
                   personality best
                 </p>
                 <Link to="/appointment" className="nav-link">
-                  <button type="button" class="btn btn-primary btn-lg">
-                    Book Appointment
-                  </button>
+                <button type="button" className="btn btn-outline-danger">Book Appointment</button>
                 </Link>
               </div>
             </div>
@@ -114,17 +112,89 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container banner mt-3 ">
-        <div className="row">
-          <div className="col-md-6 banner-image">
+      <div className="row p-md-0 m-md-0">
+          <div className={`col-md-6 p-md-0 m-md-0 image`}>
             <img src={ContactImage} className="img-fluid" alt="Banner Image" />
           </div>
-          <div className="col-md-6 banner-text">
-            <h2>Beautiful Hair</h2>
+          <div
+            className={`col-md-6 about d-flex align-items-center justify-content-center`}
+          >
+            <form>
+              <div
+                className={`d-flex align-items-center justify-content-center`}
+              >
+                <div className="form-group">
+                  <label className="text-left" htmlFor="firstName">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border-bottom"
+                    id="firstName"
+                    placeholder="Enter First Name"
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="text-left" htmlFor="lastName">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border-bottom"
+                    id="lastName"
+                    placeholder="Enter Last Name"
+                  />
+                </div>
+              </div>
+              <div
+                className={`d-flex align-items-center justify-content-center`}
+              >
+                <div className="form-group">
+                  <label className="text-left" htmlFor="phone">
+                    Phone
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control border-bottom"
+                    id="phone"
+                    placeholder="Enter Phone"
+                  />
+                </div>
+                <div className="form-group">
+                  <label className="text-left" htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control border-bottom"
+                    id="email"
+                    placeholder="Enter Email"
+                  />
+                </div>
+              </div>
+
+              <fieldset className="border-bottom">
+                <label className="text-left" htmlFor="phone">
+                  Message
+                </label>
+                <div className="form-group">
+                  <textarea
+                    className="form-control"
+                    id="message"
+                    rows="4"
+                    placeholder="Enter Your Message"
+                  ></textarea>
+                </div>
+              </fieldset>
+
+              <button type="button" className="btn btn-outline-danger">
+                Send
+              </button>
+            </form>
           </div>
-        </div>
-      </div>
-    </div>
+          </div>
+          </div>
+   
   );
 }
 export default HomePage;

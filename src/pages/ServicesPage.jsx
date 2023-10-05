@@ -4,6 +4,7 @@ import ProfileImage from "../../styles/image.svg";
 import ContactImage from "../../styles/image1.svg";
 import { servicesData } from "./servicesData";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
   const [services, setServices] = useState(servicesData);
@@ -34,9 +35,11 @@ const ServicesPage = () => {
                   We see "YOU" and we create the look that matches your
                   personality best
                 </p>
-                <button type="button" className="btn btn-lg bg-white w-100">
-                  Book Appointment Now
-                </button>
+                <Link to="/appointment" className="nav-link">
+                  <button type="button" className="btn btn-outline-danger">
+                    Book Appointment
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -140,6 +143,10 @@ const ServicesPage = () => {
                   ></textarea>
                 </div>
               </fieldset>
+
+              <button type="button" className="btn btn-outline-danger">
+                Send
+              </button>
             </form>
           </div>
         </div>

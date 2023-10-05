@@ -109,7 +109,7 @@ body {
 }
 .home .price h2,
 .home .price p {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .intro p {
   color: white;
@@ -117,7 +117,41 @@ body {
   border-bottom: 2px solid #fff;
 }
 .services {
-  background-color: #f4ede6;
+  background-color: #dbc3aa;
+}
+.sign {
+  text-align: center;
+  background-color: #dbc3aa;
+}
+.log {
+  text-align: center;
+  background-color: #dbc3aa;
+}
+.appointmentpage {
+  text-align: center;
+  margin: 20px;
+  background-color: #dbc3aa;
+}
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+button {
+  background-color: #09090a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b36500;
 }
 
 footer {
