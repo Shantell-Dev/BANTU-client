@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ProfileImage from "../../styles/image.svg";
+//import ProfileImage from "../../styles/image.svg";
 import ContactImage from "../../styles/image1.svg";
 import { servicesData } from "./servicesData";
 import Footer from "./Footer";
@@ -53,7 +53,7 @@ const ServicesPage = () => {
                 i % 1 === 0 ? "order-md-1" : ""
               } image`}
             >
-              <img src={ProfileImage} className="img-fluid" alt="Service" />
+              <img src={service.imageUrl} className="img-fluid" alt="Service" />
             </div>
             <div
               className={`col-md-6 about d-flex ${
@@ -69,6 +69,7 @@ const ServicesPage = () => {
             </div>
           </div>
         ))}
+
         <div className="row p-md-0 m-md-0">
           <div className={`col-md-6 p-md-0 m-md-0 image`}>
             <img src={ContactImage} className="img-fluid" alt="Banner Image" />

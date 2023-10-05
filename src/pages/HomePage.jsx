@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import axios from "axios";
 import Card from "../components/Card";
 import Icon1 from "../../styles/icon_1.svg";
 import Icon2 from "../../styles/icon_2.svg";
@@ -8,6 +10,33 @@ import ContactImage from "../../styles/image1.svg";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5005/send-email", formData)
+      .then((response) => {
+        if (response.data.success) {
+          console.log("Email sent successfully");
+        } else {
+          console.error("Failed to send email");
+        }
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+      });
+  };
+
   return (
     <div className="home">
       <div className="home-container">
@@ -21,13 +50,16 @@ function HomePage() {
                   personality best
                 </p>
                 <Link to="/appointment" className="nav-link">
-                <button type="button" className="btn btn-outline-danger">Book Appointment</button>
+                  <button type="button" className="btn btn-outline-danger">
+                    Book Appointment
+                  </button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className=" service p-2">
         <div className="row">
           <div className="col-md-4">
@@ -65,61 +97,62 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-6 image">
-            <img src={ProfileImage} className="img-fluid"></img>
-          </div>
-          <div className="col-md-6 about d-flex">
-            <h2>Shantell</h2>
-            <h3>Braider/ Hair Stylist</h3>
-            <p>
-              Shantell is an African hairstylist in Berlin, known for blending
-              African hair traditions with modern flair.{" "}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="container ">
-        <div className="row">
-          <div className="col-md-6 about d-flex">
-            <h2>MALIK DE LA CRUZ</h2>
-            <h3>Barber</h3>
-            <p>
-              Malik,a Brazilian-born male hairstylist in Berlin, is known for
-              his innovative and gender-inclusive approach to hairstyling.
-            </p>
-          </div>
-          <div className="col-md-6 image">
-            <img src={MalikImage} className="img-fluid"></img>
+      <div className=" container-fluid stylists">
+        <div className="container  mt-5">
+          <div className="row p-md-0 m-md-0">
+            <div className="col-md-6 image">
+              <img src={ProfileImage} className="img-fluid"></img>
+            </div>
+            <div className="col-md-6 about d-flex">
+              <h2>Shantell</h2>
+              <h3>Braider/ Hair Stylist</h3>
+              <p>
+                Shantell is an African hairstylist in Berlin, known for blending
+                African hair traditions with modern flair.{" "}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className=" price mt-3">
-        <div className="row">
-          <div className="col-md-4 d-flex schedule-title">
-            <h2>Price List</h2>
-          </div>
-          <div className="col-md-8 ">
-            <p>Braids 150€</p>
-            <p>FULANI BRAIDS/ WIG INSTALLATION/ WEAVE 80€</p>
-            <p>CROTCHET/ CORNROWS 50€</p>
-            <p>TWIST 100€</p>
-            <p>LOCS 130€</p>
-            <p>SPECIAL OCCASIONS MAKE-UP 120€</p>
-            <p>FULL FACE MAKE-UP 60€</p>
-            <p>THREADING 12€</p>
+        <div className="container ">
+          <div className="row p-md-0 m-md-0">
+            <div className="col-md-6 about d-flex">
+              <h2>MALIK DE LA CRUZ</h2>
+              <h3>Barber</h3>
+              <p>
+                Malik,a Brazilian-born male hairstylist in Berlin, is known for
+                his innovative and gender-inclusive approach to hairstyling.
+              </p>
+            </div>
+            <div className="col-md-6 image">
+              <img src={MalikImage} className="img-fluid"></img>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="row p-md-0 m-md-0">
+        <div className=" price mt-3">
+          <div className="row p-md-0 m-md-0">
+            <div className="col-md-4 d-flex schedule-title">
+              <h2>Price List</h2>
+            </div>
+            <div className="col-md-8 ">
+              <p>Braids 150€</p>
+              <p>FULANI BRAIDS/ WIG INSTALLATION/ WEAVE 80€</p>
+              <p>CROTCHET/ CORNROWS 50€</p>
+              <p>TWIST 100€</p>
+              <p>LOCS 130€</p>
+              <p>SPECIAL OCCASIONS MAKE-UP 120€</p>
+              <p>FULL FACE MAKE-UP 60€</p>
+              <p>THREADING 12€</p>
+            </div>
+          </div>
+        </div>
+        <div className="row p-md-0 m-md-0">
           <div className={`col-md-6 p-md-0 m-md-0 image`}>
             <img src={ContactImage} className="img-fluid" alt="Banner Image" />
           </div>
           <div
             className={`col-md-6 about d-flex align-items-center justify-content-center`}
           >
-            <form>
+            <form onSubmit={handleSubmit}>
               <div
                 className={`d-flex align-items-center justify-content-center`}
               >
@@ -128,6 +161,8 @@ function HomePage() {
                     First Name
                   </label>
                   <input
+                    value={formData.firstName}
+                  /*  onChange={handleChange} */
                     type="text"
                     className="form-control border-bottom"
                     id="firstName"
@@ -139,6 +174,8 @@ function HomePage() {
                     Last Name
                   </label>
                   <input
+                    value={formData.lastName}
+                    onChange={handleChange}
                     type="text"
                     className="form-control border-bottom"
                     id="lastName"
@@ -154,6 +191,8 @@ function HomePage() {
                     Phone
                   </label>
                   <input
+                    value={formData.phone}
+                    onChange={handleChange}
                     type="text"
                     className="form-control border-bottom"
                     id="phone"
@@ -165,6 +204,8 @@ function HomePage() {
                     Email
                   </label>
                   <input
+                    value={formData.email}
+                    onChange={handleChange}
                     type="email"
                     className="form-control border-bottom"
                     id="email"
@@ -192,9 +233,9 @@ function HomePage() {
               </button>
             </form>
           </div>
-          </div>
-          </div>
-   
+        </div>
+      </div>
+    </div>
   );
 }
 export default HomePage;

@@ -67,9 +67,11 @@ body {
   justify-content: center;
   text-align: center;
   padding: 1rem 0;
+  background-color: #dbc3aa;
 }
-.home .service {
-  background: #a5836a;
+.home .service,
+.stylists {
+  background: #dbc3aa;
 }
 .card {
   align-items: center;
@@ -125,9 +127,10 @@ body {
 }
 .log {
   text-align: center;
+  margin: 10px;
   background-color: #dbc3aa;
 }
-.appointmentpage {
+.appointment {
   text-align: center;
   margin: 20px;
   background-color: #dbc3aa;

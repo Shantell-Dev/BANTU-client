@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+//import Footer from "./pages/Footer";
 import axios from "axios";
 import appointImage from "../../styles/image2.jpg";
 
@@ -22,7 +23,7 @@ const AppointmentPage = () => {
   };
 
   return (
-    <div className="appointmentPage row p-md-0 m-md-0">
+    <div className="appointment row p-md-0 m-md-0">
       <div className={`col-md-6 p-md-0 m-md-0 image`}>
         <img src={appointImage} className="img-fluid" alt="Banner Image" />
       </div>
