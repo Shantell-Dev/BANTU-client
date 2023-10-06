@@ -21,7 +21,7 @@ function HomePage() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleSubmit = (e) => {
+  const handleSendClick = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5005/send-email", formData)

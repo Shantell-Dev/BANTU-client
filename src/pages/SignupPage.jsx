@@ -17,7 +17,7 @@ function SignupPage(props) {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleUserName = (e) => setUserName(e.target.value);
 
-  const handleSignupSubmit = (e) => {
+  const handleSignUpClick = (e) => {
     e.preventDefault();
     const requestBody = { email, password, userName };
 

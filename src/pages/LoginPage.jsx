@@ -17,7 +17,7 @@ function LoginPage(props) {
   const handleuserName = (e) => setUserName(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLoginSubmit = (e) => {
+  const handleLogInClick = (e) => {
     e.preventDefault();
     const requestBody = { userName, password };
 
