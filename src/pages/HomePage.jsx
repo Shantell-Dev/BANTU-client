@@ -21,7 +21,7 @@ function HomePage() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleSendClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5005/send-email", formData)
@@ -162,7 +162,7 @@ function HomePage() {
                   </label>
                   <input
                     value={formData.firstName}
-                  /*  onChange={handleChange} */
+                   onChange={handleChange}
                     type="text"
                     className="form-control border-bottom"
                     id="firstName"
@@ -228,9 +228,9 @@ function HomePage() {
                 </div>
               </fieldset>
 
-              <button onClick={handleSendClick} className="btn btn-dark">
-            Send
-          </button>
+              <button type="button" className="btn btn-outline-danger">
+                Send
+              </button>
             </form>
           </div>
         </div>
