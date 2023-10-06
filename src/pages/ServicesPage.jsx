@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-//import ProfileImage from "../../styles/image.svg";
+import ProfileImage from "../../styles/image.svg";
 import ContactImage from "../../styles/image1.svg";
 import { servicesData } from "./servicesData";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
-  const [services, setServices] = useState(servicesData);
+  const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,6 +22,8 @@ const ServicesPage = () => {
         setLoading(false);
       });
   }, []);
+
+  const serviceImages = [ProfileImage, ContactImage];
 
   return (
     <div className="services">
@@ -53,7 +55,7 @@ const ServicesPage = () => {
                 i % 1 === 0 ? "order-md-1" : ""
               } image`}
             >
-              <img src={service.imageUrl} className="img-fluid" alt="Service" />
+              <img src={serviceImages[i]} className="img-fluid" alt="Service" />
             </div>
             <div
               className={`col-md-6 about d-flex ${

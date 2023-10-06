@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-//import Footer from "./pages/Footer";
 import axios from "axios";
 import appointImage from "../../styles/image2.jpg";
 
@@ -9,17 +8,35 @@ const AppointmentPage = () => {
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [service, setService] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const appointmentData = { name, email, date, time };
-    console.log("Appointment Data:", appointmentData);
-
+    try {
+      const appointmentData = {
+        name,
+        email,
+        date,
+        time,
+        service,
+      };
+      const response = await axios.post(
+        "http://localhost:5005/appointments",
+        appointmentData
+      );
+      if (response.data.success) {
+        console.log("Appointment booked successfully!");
+      } else {
+        console.error("Failed to book appointment:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error booking appointment:", error);
+    }
     setName("");
     setEmail("");
     setDate("");
     setTime("");
+    setService("");
   };
 
   return (
@@ -53,6 +70,18 @@ const AppointmentPage = () => {
               className="form-control border-bottom"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label className="text-left" htmlFor="service">
+              Service:
+            </label>
+            <input
+              type="text"
+              className="form-control border-bottom"
+              value={service}
+              onChange={(e) => setService(e.target.value)}
               required
             />
           </div>
