@@ -228,9 +228,9 @@ function HomePage() {
                 </div>
               </fieldset>
 
-              <button type="button" className="btn btn-outline-danger">
-                Send
-              </button>
+              <button onClick={handleSendClick} className="btn btn-dark">
+            Send
+          </button>
             </form>
           </div>
         </div>

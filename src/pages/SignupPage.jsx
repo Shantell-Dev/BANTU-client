@@ -91,9 +91,10 @@ function SignupPage(props) {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-dark">
+          <button onClick={handleSignUpClick} className="btn btn-dark">
             Sign Up
           </button>
+
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>

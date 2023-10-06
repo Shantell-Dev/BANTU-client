@@ -76,8 +76,8 @@ function LoginPage(props) {
               required
             />
           </div>
-          <button type="submit" className="btn btn-dark">
-            Login
+          <button onClick={handleLogInClick} className="btn btn-dark">
+            LogIn
           </button>
           <p>
             Don't have an account yet? <Link to="/signup">Sign Up</Link>

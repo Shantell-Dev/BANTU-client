@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ProfileImage from "../../styles/image.svg";
+import BraidsImage from "../../styles/boxbraids.jpeg";
+import CornRowImage from "../../styles/cornrows.jpeg";
+import FulaniImage from "../../styles/fulanibraids.jpeg";
+import weave from "../../styles/sewIn.png";
+import CutImage from "../../styles/fade.jpeg";
+import FullImage from "../../styles/FFM.jpeg";
+import ThreadingImage from "../../styles/threading.jpeg";
+import CrotchetImage from "../../styles/crotchet.jpeg";
+import LocsImage from "../../styles/locs.jpeg";
+import TwistImage from "../../styles/SenegaleseTwists.jpeg";
+import WigImage from "../../styles/Wigs.jpeg";
+import SPOMImage from "../../styles/SPOM.png";
 import ContactImage from "../../styles/image1.svg";
 import { servicesData } from "./servicesData";
 import Footer from "./Footer";
@@ -23,7 +34,20 @@ const ServicesPage = () => {
       });
   }, []);
 
-  const serviceImages = [ProfileImage, ContactImage];
+  const serviceImages = [
+    FulaniImage,
+    CutImage,
+    BraidsImage,
+    FullImage,
+    ThreadingImage,
+    CrotchetImage,
+    LocsImage,
+    TwistImage,
+    WigImage,
+    CornRowImage,
+    weave,
+    SPOMImage,
+  ];
 
   return (
     <div className="services">
