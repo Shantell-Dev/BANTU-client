@@ -7,7 +7,7 @@ import loginImage from "../../styles/image4.svg";
 const API_URL = "http://localhost:5005";
 
 function LoginPage(props) {
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -17,12 +17,12 @@ function LoginPage(props) {
   const handleuserName = (e) => setUserName(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLogInClick = (e) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { userName, password };
+    const requestBody = { username, password };
 
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${API_URL}/api/login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
@@ -31,8 +31,9 @@ function LoginPage(props) {
         navigate("/"); // <== ADD
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log(error);
+        // const errorDescription = error.response.data.message;
+        // setErrorMessage(errorDescription);
       });
   };
 
@@ -55,7 +56,7 @@ function LoginPage(props) {
               className="form-control border-bottom"
               id="userName"
               name="userName"
-              value={userName}
+              value={username}
               onChange={handleuserName}
               placeholder="Enter userName"
               required
@@ -76,8 +77,8 @@ function LoginPage(props) {
               required
             />
           </div>
-          <button onClick={handleLogInClick} className="btn btn-dark">
-            LogIn
+          <button type="submit" className="btn btn-dark">
+            Login
           </button>
           <p>
             Don't have an account yet? <Link to="/signup">Sign Up</Link>

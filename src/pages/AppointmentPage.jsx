@@ -109,7 +109,7 @@ const AppointmentPage = () => {
               required
             />
           </div>
-          <button onClick={handleBookAppointmentClick} className="btn btn-dark">
+          <button type="submit" className="btn btn-dark">
             Book Appointment
           </button>
         </form>

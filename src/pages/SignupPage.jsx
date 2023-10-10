@@ -8,7 +8,7 @@ const API_URL = "http://localhost:5005";
 function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -17,18 +17,19 @@ function SignupPage(props) {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleUserName = (e) => setUserName(e.target.value);
 
-  const handleSignUpClick = (e) => {
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password, userName };
+    const requestBody = { email, password, username };
 
     axios
-      .post(`${API_URL}/auth/signup`, requestBody)
+      .post(`${API_URL}/api/signup`, requestBody)
       .then((response) => {
         navigate("/login");
       })
       .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage(errorDescription);
+        console.log(error);
+        // const errorDescription = error.response.data.message;
+        // setErrorMessage(errorDescription);
       });
   };
 
@@ -52,7 +53,7 @@ function SignupPage(props) {
                 className="form-control border-bottom"
                 id="UserName"
                 name="userName"
-                value={userName}
+                value={username}
                 onChange={handleUserName}
                 placeholder="Enter UserName"
                 required
@@ -91,10 +92,9 @@ function SignupPage(props) {
               />
             </div>
           </div>
-          <button onClick={handleSignUpClick} className="btn btn-dark">
+          <button type="submit" className="btn btn-dark">
             Sign Up
           </button>
-
           <p>
             Already have an account? <Link to="/login">Login</Link>
           </p>
